@@ -1,3 +1,14 @@
+---
+title: Sales & Customer Dashboard
+emoji: 📊
+colorFrom: purple
+colorTo: blue
+sdk: docker
+sdk_version: "latest"
+app_file: app.py
+pinned: false
+---
+
 # 📊 Sales & Customer Dashboard
 
 An **interactive and colorful Dash dashboard** for analyzing
