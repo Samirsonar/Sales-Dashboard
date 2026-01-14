@@ -452,4 +452,4 @@ def generate_csv(n_clicks, countries, categories, start_date, end_date):
 
 if __name__ == '__main__':
     print('Starting colorful Dash app (fixed, no badges) on http://127.0.0.1:8000')
-    app.run(debug=True, port=8000, host='127.0.0.1')
+    app.run(debug=False, port=8000, host='127.0.0.1')
