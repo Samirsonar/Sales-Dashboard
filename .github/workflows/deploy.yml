@@ -25,11 +25,13 @@ jobs:
           git config --global user.name "Samirsonar"
 
           # Clone Hugging Face Space repo
-          git clone https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard
+          git clone https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard hf
 
           # Copy project files into Hugging Face repo root
-          rsync -av --exclude='.git'
+          rsync -av --exclude='.git' ./ hf/
+          
           # Push to Hugging Face
+          cd hf
           git add .
           git commit -m "Auto deploy from GitHub"
-          git push
+          git push https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard
