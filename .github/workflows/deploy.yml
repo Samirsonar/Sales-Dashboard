@@ -1,0 +1,28 @@
+name: Deploy to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "samirxnr@gmail.com"
+          git config --global user.name "Samirsonar"
+
+          git clone https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard hf_space
+          rsync -av --exclude='.git' ./ hf_space/
+          cd hf_space
+          git add .
+          git commit -m "Auto deploy from GitHub"
+          git push
