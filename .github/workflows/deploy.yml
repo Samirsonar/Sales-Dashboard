@@ -28,8 +28,7 @@ jobs:
           git clone https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard
 
           # Copy project files into Hugging Face repo root
-          rsync -av --exclude='.git' ./ ecommerce-dashboard/
-
+          rsync -av --exclude='.git'
           # Push to Hugging Face
           git add .
           git commit -m "Auto deploy from GitHub"
