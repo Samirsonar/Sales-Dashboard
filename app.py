@@ -451,5 +451,5 @@ def generate_csv(n_clicks, countries, categories, start_date, end_date):
     return dcc.send_data_frame(dff.to_csv, filename='filtered_sales.csv', index=False)
 
 if __name__ == '__main__':
-    print('Starting colorful Dash app (fixed, no badges) on http://127.0.0.1:8000')
-    app.run(debug=False, port=8000, host='127.0.0.1')
+    print('Starting colorful Dash app (fixed, no badges) on http://127.0.0.1:7860')
+    app.run(debug=False, port=7860, host='0.0.0.0')
