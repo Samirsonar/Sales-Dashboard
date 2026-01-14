@@ -31,7 +31,6 @@ jobs:
           rsync -av --exclude='.git' ./ ecommerce-dashboard/
 
           # Push to Hugging Face
-          cd ecommerce-dashboard
           git add .
           git commit -m "Auto deploy from GitHub"
           git push
