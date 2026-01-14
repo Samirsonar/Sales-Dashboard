@@ -15,25 +15,23 @@ jobs:
           lfs: true
 
       - name: Install Git LFS
-        run: |
-          git lfs install
+        run: git lfs install
 
-      - name: Push to Hugging Face Space
+      - name: Push directly to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git config --global user.email "samirxnr@gmail.com"
           git config --global user.name "Samirsonar"
 
-          git clone https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard hf_space
-          
-          rsync -av --exclude='.git' ./ hf_space/
-          
-          cd hf_space
-          
-          git lfs install
-          git lfs track "data/ecommerce_synthetic_dataset.csv"
-          
+          # Clone Hugging Face Space repo
+          git clone https://Samirsonar:$HF_TOKEN@huggingface.co/spaces/samir118/ecommerce-dashboard
+
+          # Copy project files into Hugging Face repo root
+          rsync -av --exclude='.git' ./ ecommerce-dashboard/
+
+          # Push to Hugging Face
+          cd ecommerce-dashboard
           git add .
           git commit -m "Auto deploy from GitHub"
           git push
